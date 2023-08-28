@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#EDEDFF"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="UNIVERSITY TOPPERS FROM CIMAGE GROUP"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/primary_blue"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        />
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <!-- 1 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_dhiraj" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 2 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_divyanshu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 3 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_kumar_shanu" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 4 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_prashant_kumar" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 5 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_shruti" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- 6 -->
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="@dimen/_5sdp"
+                app:cardElevation="@dimen/_15sdp"
+                app:cardUseCompatPadding="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_250sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/topper_sivangi_gupta" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</LinearLayout>

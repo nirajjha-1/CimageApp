@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">CimageApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="course_name">
+        <item>-- Please choose an option --</item>
+        <item>BCA</item>
+        <item>BBA</item>
+        <item>B.Sc-IT</item>
+        <item>BBM</item>
+        <item>B.Com (P)</item>
+        <item>PGDM</item>
+    </string-array>
+
+    <string-array name="counsellors_name">
+        <item>-- Please choose an option --</item>
+        <item>Shabina</item>
+        <item>Manisha</item>
+        <item>Poonam</item>
+        <item>Sapna</item>
+        <item>Vandana</item>
+        <item>Riya Mam</item>
+        <item>Ananya Mam</item>
+        <item>Roshini Mam</item>
+        <item>Prachi Mam</item>
+        <item>Puja Mam</item>
+        <item>Not Spoken With Anyone</item>
+        <item>Don\'t Remember The Name</item>
+    </string-array>
+
+
+    <string name="nevigation_open">Open Navigation Drawer</string>
+    <string name="nevigation_close">Close Navigation Drawer</string>
+</resources>

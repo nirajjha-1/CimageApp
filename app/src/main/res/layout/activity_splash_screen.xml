@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="@dimen/_150sdp"
+            android:layout_height="@dimen/_150sdp"
+            android:src="@drawable/cimage_logo_square"
+            android:layout_centerInParent="true"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/logo"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="INSTITUTE OF EXCELLENCE"
+            android:textColor="@color/primary_blue"
+            android:textAlignment="center"
+            android:textSize="@dimen/_15ssp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+</LinearLayout>
