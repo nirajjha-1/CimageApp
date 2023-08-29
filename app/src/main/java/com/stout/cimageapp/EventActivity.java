@@ -44,7 +44,7 @@ public class EventActivity extends AppCompatActivity {
     StringRequest mStringQueue;
 
     // API URL
-    private String url = "http://192.168.1.3/cimage/fetch_event.php";
+    private String url = "http://192.168.188.120/cimage/fetch_event.php";
 
     private List<Event_Model> eventList;
 

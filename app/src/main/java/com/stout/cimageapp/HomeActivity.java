@@ -37,7 +37,7 @@ import java.util.Map;
 public class HomeActivity extends AppCompatActivity {
 
     // API URL
-    private String url = "http://192.168.1.3/cimage/insert_enquery.php";
+    private String url = "http://192.168.188.120/cimage/insert_enquery.php";
 
     // tool bar
     DrawerLayout drawerLayout;

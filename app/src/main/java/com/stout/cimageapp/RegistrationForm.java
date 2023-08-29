@@ -39,7 +39,7 @@ import java.util.Map;
 public class RegistrationForm extends AppCompatActivity {
 
     // API URL
-    private String url = "http://192.168.1.3/cimage/insert_registration_info.php";
+    private String url = "http://192.168.188.120/cimage/insert_registration_info.php";
 
     // tool bar
     DrawerLayout drawerLayout;
