@@ -2,16 +2,15 @@ package com.stout.cimageapp;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -28,22 +27,21 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.stout.cimageapp.utils.Config;
+import com.stout.cimageapp.utils.MasterFunction;
+import com.stout.cimageapp.utils.URLS;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
-    // API URL
-    private String url = "http://192.168.188.120/cimage/insert_enquery.php";
-
     // tool bar
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    Context mContext;
 
     // enquiry form
     EditText edt_fname, edt_lname, edt_email_id, edt_mobile_number;
@@ -61,35 +59,17 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         setSupportActionBar(toolbar);
+        mContext = this;
 
         // tool bar
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.my_tool_bar);
 
-
-
-
         // navigation bar
         navigationView = findViewById(R.id.navigationView);
 
         // navigation bar item select handle
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-
-                if (id == R.id.optHome) {
-                    startActivity(new Intent(HomeActivity.this, HomeActivity.class));
-                } else if (id == R.id.optEvent) {
-                    startActivity(new Intent(HomeActivity.this, EventActivity.class));
-                }else if (id == R.id.optGallery) {
-                    startActivity(new Intent(HomeActivity.this, RegistrationForm.class));
-                } else {
-                    startActivity(new Intent(HomeActivity.this, RegistrationForm.class));
-                }
-                return true;
-            }
-        });
+        MasterFunction.setNavigationView(navigationView,mContext);
 
         // apply button
         applyBtn = findViewById(R.id.applyBtn);
@@ -134,7 +114,7 @@ public class HomeActivity extends AppCompatActivity {
                         pDialog.setMessage("Loading... Please Wait");
                         pDialog.show();
 
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLS.SEND_ENQUERY_URL,
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -187,6 +167,4 @@ public class HomeActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
-
-
 }

@@ -11,14 +11,12 @@
             android:icon="@drawable/menu_photo_library_24"
             android:title="Gallery" />
         <item
-            android:id="@+id/optEvent"
+            android:id="@+id/optNewsEvent"
             android:icon="@drawable/menu_event_24"
-            android:title="Event" />
+            android:title="News &amp; Event" />
         <item
-            android:id="@+id/optNews"
-            android:icon="@drawable/menu_newspaper_24"
-            android:title="News" />
-
+            android:id="@+id/optLogin"
+            android:icon="@drawable/menu_login_24"
+            android:title="Login" />
     </group>
-
 </menu>

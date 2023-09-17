@@ -27,7 +27,7 @@
                 android:layout_width="@dimen/_250sdp"
                 android:layout_height="@dimen/_200sdp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/cimage_logo_square"
+                android:src="@drawable/cimage_logo_circle"
                 android:layout_marginBottom="@dimen/_10sdp"
                 />
 

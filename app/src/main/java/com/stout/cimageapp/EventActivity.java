@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -28,6 +29,9 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.stout.cimageapp.adapter.Event_Adapter;
 import com.stout.cimageapp.models.Event_Model;
+import com.stout.cimageapp.utils.Config;
+import com.stout.cimageapp.utils.MasterFunction;
+import com.stout.cimageapp.utils.URLS;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,9 +47,6 @@ public class EventActivity extends AppCompatActivity {
     private RequestQueue mRequestQueue;
     StringRequest mStringQueue;
 
-    // API URL
-    private String url = "http://192.168.188.120/cimage/fetch_event.php";
-
     private List<Event_Model> eventList;
 
     private ListView list_event;
@@ -54,6 +55,8 @@ public class EventActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    Context mContext;
+
 
 
     @SuppressLint("MissingInflatedId")
@@ -64,35 +67,19 @@ public class EventActivity extends AppCompatActivity {
 
         // set custom toolbar/ action bar / app bar
         setSupportActionBar(toolbar);
+        mContext = this;
 
         // tool bar
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.my_tool_bar);
 
 
-
         // navigation bar
         navigationView = findViewById(R.id.navigationView);
 
         // navigation bar item select handle
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.optHome) {
-                    startActivity(new Intent(EventActivity.this, HomeActivity.class));
-                } else if (id == R.id.optEvent) {
-                    startActivity(new Intent(EventActivity.this, EventActivity.class));
-                } else if (id == R.id.optGallery) {
-                    startActivity(new Intent(EventActivity.this, RegistrationForm.class));
-                } else {
-                    startActivity(new Intent(EventActivity.this, RegistrationForm.class));
-                }
-                return true;
-            }
-        });
+        MasterFunction.setNavigationView(navigationView,mContext);
 
-        // tool bar
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nevigation_open, R.string.nevigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
@@ -103,7 +90,7 @@ public class EventActivity extends AppCompatActivity {
         mRequestQueue = Volley.newRequestQueue(this);
 
         //RequestQueue Initialized
-        mStringQueue = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        mStringQueue = new StringRequest(Request.Method.GET, URLS.FETCH_NEWS_EVENT_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -119,15 +106,17 @@ public class EventActivity extends AppCompatActivity {
                         eventList.add(new Event_Model(event_title, event_disc, event_img_url));
                     }
 
-                    Event_Adapter event_adapter = new Event_Adapter(EventActivity.this, eventList);
-                    list_event.setAdapter(event_adapter);
+                    if (eventList != null) {
+                        Event_Adapter event_adapter = new Event_Adapter(EventActivity.this, eventList);
+                        list_event.setAdapter(event_adapter);
+                    }
                 } catch (JSONException ex) {
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i(TAG, "Erro : " + error.toString());
+                Log.i(TAG, "Error : " + error.toString());
             }
         });
         mRequestQueue.add(mStringQueue);

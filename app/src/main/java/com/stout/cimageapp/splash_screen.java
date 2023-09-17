@@ -20,7 +20,7 @@ public class splash_screen extends AppCompatActivity {
             public void run() {
                 startActivity(iHome);
             }
-        },3000);
+        },2000);
 
     }
 }

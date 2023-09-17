@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,7 +22,12 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
 import com.stout.cimageapp.adapter.Event_Adapter;
+import com.stout.cimageapp.adapter.Gallery_Adapter;
 import com.stout.cimageapp.models.Event_Model;
+import com.stout.cimageapp.models.Gallery_Model;
+import com.stout.cimageapp.utils.Config;
+import com.stout.cimageapp.utils.MasterFunction;
+import com.stout.cimageapp.utils.URLS;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,95 +36,79 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class gallery extends AppCompatActivity {
+public class GalleryActivity extends AppCompatActivity {
 
-    private static final String TAG = EventActivity.class.getName();
+    private static final String TAG = GalleryActivity.class.getName();
 
     private RequestQueue mRequestQueue;
     StringRequest mStringQueue;
+    private List<Gallery_Model> galleryList;
 
-    // API URL
-    private String url = "http://192.168.188.120/cimage/gallery.php";
-
-    private List<Event_Model> eventList;
-
-    private ListView list_event;
+    private ListView list_gallery;
 
     // tool bar
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+    Context mContext;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event);
+        setContentView(R.layout.activity_gallery);
 
         // set custom toolbar/ action bar / app bar
         setSupportActionBar(toolbar);
+        mContext = this;
 
         // tool bar
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.my_tool_bar);
 
-
         // navigation bar
         navigationView = findViewById(R.id.navigationView);
 
         // navigation bar item select handle
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.optHome) {
-                    startActivity(new Intent(gallery.this, HomeActivity.class));
-                } else if (id == R.id.optEvent) {
-                    startActivity(new Intent(gallery.this, EventActivity.class));
-                } else if (id == R.id.optGallery) {
-                    startActivity(new Intent(gallery.this, RegistrationForm.class));
-                } else {
-                    startActivity(new Intent(gallery.this, RegistrationForm.class));
-                }
-                return true;
-            }
-        });
+        MasterFunction.setNavigationView(navigationView,mContext);
 
-        // tool bar
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nevigation_open, R.string.nevigation_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        list_event = findViewById(R.id.list_event);
+        list_gallery = findViewById(R.id.list_gallery);
 
         //RequestQueue Initialized
         mRequestQueue = Volley.newRequestQueue(this);
 
         //RequestQueue Initialized
-        mStringQueue = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+        mStringQueue = new StringRequest(Request.Method.GET, URLS.FETCH_GALLERY_URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
                     JSONArray array = new JSONArray(response);
-                    eventList = new ArrayList<>();
+                    galleryList = new ArrayList<>();
 
                     for (int i = 0; i < array.length(); i++) {
 
                         JSONObject jsonObject = array.getJSONObject(i);
-                        String event_title = jsonObject.getString("event_title");
-                        String event_disc = jsonObject.getString("event_disc");
-                        String event_img_url = jsonObject.getString("event_img");
-                        eventList.add(new Event_Model(event_title, event_disc, event_img_url));
+                        String gallery_title = jsonObject.getString("title");
+                        String gallery_disc = jsonObject.getString("discription");
+                        String gallery_img_url = jsonObject.getString("image_url");
+                        galleryList.add(new Gallery_Model(gallery_title, gallery_disc, gallery_img_url));
                     }
 
-                    Event_Adapter event_adapter = new Event_Adapter(gallery.this, eventList);
-                    list_event.setAdapter(event_adapter);
+                    if (list_gallery != null) {
+                        Gallery_Adapter gallery_adapter = new Gallery_Adapter(GalleryActivity.this, galleryList);
+                        list_gallery.setAdapter(gallery_adapter);
+                    }
                 } catch (JSONException ex) {
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.i(TAG, "Erro : " + error.toString());
+                Log.i(TAG, "Error : " + error.toString());
             }
         });
         mRequestQueue.add(mStringQueue);

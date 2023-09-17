@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:src="@drawable/cimage_logo_square" />
+        android:src="@drawable/cimage_logo_circle" />
 
     <LinearLayout
         android:layout_width="match_parent"

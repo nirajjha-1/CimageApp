@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -32,19 +33,20 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
+import com.stout.cimageapp.utils.Config;
+import com.stout.cimageapp.utils.MasterFunction;
+import com.stout.cimageapp.utils.URLS;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RegistrationForm extends AppCompatActivity {
 
-    // API URL
-    private String url = "http://192.168.188.120/cimage/insert_registration_info.php";
-
+    Context mContext;
     // tool bar
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
-    Toolbar toolbar;
+//    DrawerLayout drawerLayout;
+//    NavigationView navigationView;
+//    Toolbar toolbar;
 
     // Registration Form
     EditText edt_email_id, edt_name, edt_mobile_number, edt_dob;
@@ -58,38 +60,47 @@ public class RegistrationForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_form);
 
-        setSupportActionBar(toolbar);
+//        setSupportActionBar(toolbar);
+//
+        mContext = this;
+//
+//        // tool bar
+//        drawerLayout = findViewById(R.id.drawerlayout);
+//        toolbar = findViewById(R.id.my_tool_bar);
+//
+//
+//        // navigation bar
+//        navigationView = findViewById(R.id.navigationView);
+//
+//
+//        // navigation bar item select handle
+//        MasterFunction.setNavigationView(navigationView,mContext);
+
+//        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+//            @Override
+//            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                int id = item.getItemId();
+//                if (id == R.id.optHome) {
+//                    startActivity(new Intent(RegistrationForm.this, HomeActivity.class));
+//                    finish();
+//                } else if (id == R.id.optNewsEvent) {
+//                    startActivity(new Intent(RegistrationForm.this, EventActivity.class));
+//                    finish();
+//                } else if (id == R.id.optGallery) {
+//                    startActivity(new Intent(RegistrationForm.this, GalleryActivity.class));
+//                    finish();
+//                } else if (id == R.id.optLogin) {
+//                    startActivity(new Intent(RegistrationForm.this, AdminLoginActivity.class));
+//                    finish();
+//                }
+//                return true;
+//            }
+//        });
 
         // tool bar
-        drawerLayout = findViewById(R.id.drawerlayout);
-        toolbar = findViewById(R.id.my_tool_bar);
-
-
-        // navigation bar
-        navigationView = findViewById(R.id.navigationView);
-
-        // navigation bar item select handle
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id = item.getItemId();
-                if (id == R.id.optHome) {
-                    startActivity(new Intent(RegistrationForm.this, HomeActivity.class));
-                } else if (id == R.id.optEvent) {
-                    startActivity(new Intent(RegistrationForm.this, EventActivity.class));
-                } else if (id == R.id.optGallery) {
-                    startActivity(new Intent(RegistrationForm.this, RegistrationForm.class));
-                } else {
-                    startActivity(new Intent(RegistrationForm.this, RegistrationForm.class));
-                }
-                return true;
-            }
-        });
-
-        // tool bar
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nevigation_open, R.string.nevigation_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nevigation_open, R.string.nevigation_close);
+//        drawerLayout.addDrawerListener(toggle);
+//        toggle.syncState();
 
         // Registration Form
         edt_email_id = findViewById(R.id.edt_email_id);
@@ -127,7 +138,7 @@ public class RegistrationForm extends AppCompatActivity {
                         Toast.makeText(RegistrationForm.this, "Please Select Course Name.", Toast.LENGTH_SHORT).show();
                     } else if (counsellor_name.isEmpty()) {
                         Toast.makeText(RegistrationForm.this, "Please Select Counsellor Name.", Toast.LENGTH_SHORT).show();
-                    }else {
+                    } else {
 
                         RequestQueue mRequestQueue = null;
 
@@ -136,7 +147,7 @@ public class RegistrationForm extends AppCompatActivity {
                         pDialog.setMessage("Loading... Please Wait");
                         pDialog.show();
 
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, URLS.SEND_REGISTRATION_URL,
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -157,10 +168,10 @@ public class RegistrationForm extends AppCompatActivity {
                                 params.put("name", name);
                                 params.put("mobile_number", mobile_number);
                                 params.put("dob", dob);
-                                params.put("course",course_name);
-                                params.put("counsellor_name",counsellor_name);
-                                params.put("gender",radioButtonGender.getText());
-                                params.put("category",radioButtonCategory.getText());
+                                params.put("course", course_name);
+                                params.put("counsellor_name", counsellor_name);
+                                params.put("gender", radioButtonGender.getText());
+                                params.put("category", radioButtonCategory.getText());
                                 return params;
                             }
                         };
@@ -175,26 +186,26 @@ public class RegistrationForm extends AppCompatActivity {
     }
 
     // Check Category Radio button
-    public void checkButtonCategory(View v){
+    public void checkButtonCategory(View v) {
         int radioBtnId = radioGroupCategory.getCheckedRadioButtonId();
         radioButtonCategory = findViewById(radioBtnId);
-        Toast.makeText(this, "Selected Radio Btn : "+radioButtonCategory.getText(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Selected Radio Btn : " + radioButtonCategory.getText(), Toast.LENGTH_SHORT).show();
     }
 
     // Check Gender Radio button
-    public void checkButtonGender(View v){
+    public void checkButtonGender(View v) {
         int radioBtnId = radioGroupGender.getCheckedRadioButtonId();
         radioButtonGender = findViewById(radioBtnId);
-        Toast.makeText(this, "Selected Radio Btn : "+radioButtonGender.getText(), Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "Selected Radio Btn : " + radioButtonGender.getText(), Toast.LENGTH_SHORT).show();
     }
 
     // on back press while app drawer is open
-    @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+//            drawerLayout.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
 }

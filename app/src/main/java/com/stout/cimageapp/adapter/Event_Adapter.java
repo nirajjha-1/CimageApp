@@ -17,6 +17,8 @@ import java.util.List;
 
 public class Event_Adapter extends BaseAdapter {
 
+    private Context context;
+    List<Event_Model> event_list;
 
     public Event_Adapter(Context context, List<Event_Model> event_list) {
         this.context = context;
@@ -24,8 +26,6 @@ public class Event_Adapter extends BaseAdapter {
     }
 
 
-    private Context context;
-    List<Event_Model> event_list;
 
 
 

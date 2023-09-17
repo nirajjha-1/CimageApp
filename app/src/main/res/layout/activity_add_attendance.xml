@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cimage_background"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".AddAttendanceActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_300sdp"
+            android:background="@drawable/bg_screen_rectangle_round"
+            android:orientation="vertical"
+            android:paddingTop="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:text="ADD ATTENDANCE"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp" />
+
+            <View
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="@color/white"
+                android:paddingTop="10dp" />
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:src="@drawable/attendance2" />
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mdim_75"
+            android:layout_marginHorizontal="@dimen/dim_3"
+            app:cardBackgroundColor="#ffffff"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="@dimen/_3sdp"
+            app:cardUseCompatPadding="true">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:text="Course"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spnr_attendance_course_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_square_input_box" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:layout_marginTop="10dp"
+                        android:text="Subject"
+                        android:textSize="@dimen/_15sdp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spnr_attendance_subject_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/bg_square_input_box" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/add_attendance_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_15sdp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_submit_attendance"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/bg_square_send_enq"
+                        android:text="SUBMIT"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_15sdp" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

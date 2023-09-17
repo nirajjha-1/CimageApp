@@ -9,6 +9,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="green">#439f2a</color>
 
     <color name="cimage_background">#EDEDFF</color>
     <color name="cimage_welcome_screen_background">#898aff</color>

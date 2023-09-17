@@ -36,8 +36,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -55,6 +55,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:textColor="@color/primary_blue"
                         android:layout_marginBottom="@dimen/_10sdp"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
@@ -68,8 +69,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -88,6 +89,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/primary_blue"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
                 </LinearLayout>
@@ -100,8 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -120,6 +122,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/primary_blue"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
                 </LinearLayout>
@@ -132,8 +135,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -152,6 +155,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/primary_blue"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
                 </LinearLayout>
@@ -164,8 +168,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -184,6 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/primary_blue"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
                 </LinearLayout>
@@ -196,8 +201,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="@dimen/_5sdp"
-                app:cardElevation="@dimen/_15sdp"
+                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardElevation="@dimen/_10sdp"
                 app:cardUseCompatPadding="true">
 
                 <LinearLayout
@@ -216,6 +221,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginBottom="@dimen/_10sdp"
+                        android:textColor="@color/primary_blue"
                         android:text="Dhiraj Kumar AKU - BCA Topper 2016" />
 
                 </LinearLayout>

@@ -16,7 +16,7 @@
             android:id="@+id/logo"
             android:layout_width="@dimen/_150sdp"
             android:layout_height="@dimen/_150sdp"
-            android:src="@drawable/cimage_logo_square"
+            android:src="@drawable/cimage_logo_circle"
             android:layout_centerInParent="true"
             />
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/logo"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="40dp"
+            android:layout_below="@+id/logo"
             android:fontFamily="sans-serif-medium"
             android:text="INSTITUTE OF EXCELLENCE"
             android:textColor="@color/primary_blue"

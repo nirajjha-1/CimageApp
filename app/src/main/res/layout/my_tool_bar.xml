@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -13,13 +13,13 @@
         android:id="@+id/my_tool_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/primary_blue"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         >
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/cimage_logo_square"
+            android:src="@drawable/cimage_logo_circle"
             android:layout_gravity="right"
             android:layout_marginEnd="10dp"
             />

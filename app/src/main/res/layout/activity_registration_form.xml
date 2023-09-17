@@ -1,298 +1,308 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerlayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:openDrawer="start">
+    android:background="@color/cimage_background"
+    tools:context=".MainActivity">
 
-    <!-- Scroll View -->
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <!-- Main Child of Scroll View-->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <!-- Tool Bar -->
-            <include layout="@layout/my_tool_bar" />
+            android:layout_height="@dimen/dim_130"
+            android:background="@drawable/bg_screen_rectangle_round"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dim_5">
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_gravity="center"
-                android:background="#EC4A4A"
-                android:gravity="center"
-                android:text="Registration Form"
-                android:textColor="@color/white"
-                android:textSize="@dimen/_20ssp"
-                android:textStyle="bold" />
-
-            <!-- Registraion -->
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/_5sdp"
-                app:cardCornerRadius="@dimen/_20sdp"
-                app:cardElevation="@dimen/_15sdp"
-                app:cardUseCompatPadding="true">
+                android:layout_marginTop="@dimen/dim_5"
+                android:gravity="center_horizontal"
+                android:text="REGISTRATION FORM"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_20sdp" />
+
+            <View
+                android:layout_width="@dimen/dim_25"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dim_2"
+                android:background="@color/white" />
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="@dimen/_300sdp"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_15sdp">
-
-                    <!-- Email -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Email *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <EditText
-                        android:id="@+id/edt_email_id"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:ems="15"
-                        android:hint="Enter Your Email Id"
-                        android:inputType="textEmailAddress"
-                        android:padding="@dimen/_5sdp" />
-
-
-                    <!-- Choose Counselling Done By/Spoken on phone with -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text=" Counselling Done By/Spoken on phone with *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <Spinner
-                        android:id="@+id/spnr_counselling"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:entries="@array/counsellors_name" />
-
-
-                    <!-- Name -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Enter Name *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-
-                    <EditText
-                        android:id="@+id/edt_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:ems="15"
-                        android:hint="Enter Your Name"
-                        android:padding="@dimen/_5sdp" />
-
-
-                    <!-- Phone Number -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Mobile *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <EditText
-                        android:id="@+id/edt_mobile_number"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:ems="15"
-                        android:hint="Enter Your Phone Number"
-                        android:inputType="number|phone"
-                        android:padding="@dimen/_5sdp" />
-
-                    <!-- Date Of Birth -->
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text="Date Of Birth *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <EditText
-                        android:id="@+id/edt_dob"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:ems="15"
-                        android:hint="Enter Your Date Of Birth"
-                        android:inputType="date"
-                        android:padding="@dimen/_5sdp" />
-
-                    <!-- Gender -->
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:text="Gender *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <RadioGroup
-                        android:id="@+id/radioGroupGender"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/rdBtnMale"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonGender"
-                            android:text="Male" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnFemale"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonGender"
-                            android:text="Female" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnOtr"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonGender"
-                            android:text="Other" />
-                    </RadioGroup>
-
-                    <!-- Category -->
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:layout_marginBottom="@dimen/_5sdp"
-                        android:text="Category *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-
-                    <RadioGroup
-                        android:id="@+id/radioGroupCategory"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <RadioButton
-                            android:id="@+id/rdBtnGEN"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonCategory"
-                            android:text="General" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnOBC"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonCategory"
-                            android:text="OBC" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnSC"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonCategory"
-                            android:text="SC" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnST"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonCategory"
-                            android:text="ST" />
-
-                        <RadioButton
-                            android:id="@+id/rdBtnEBC"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onClick="checkButtonCategory"
-                            android:text="EBC" />
-
-                    </RadioGroup>
-
-                    <!-- Course -->
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:text=" Course *"
-                        android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_13ssp" />
-
-                    <Spinner
-                        android:id="@+id/spnr_course_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_30sdp"
-                        android:background="@drawable/bg_square_input"
-                        android:entries="@array/course_name" />
-
-                    <!-- Submit Registration Form -->
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btn_submit_registration"
-                        android:layout_width="@dimen/_120sdp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/_20sdp"
-                        android:background="@drawable/bg_square_red"
-                        android:padding="@dimen/_5sdp"
-                        android:text="Submit"
-                        android:textColor="#ffffff"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
+            <ImageView
+                android:layout_width="@dimen/dim_30"
+                android:layout_height="@dimen/dim_30"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dim_8"
+                android:src="@drawable/student2" />
 
         </LinearLayout>
 
-        <!-- Main child of scroll view close -->
-    </ScrollView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_160"
+            android:layout_marginHorizontal="@dimen/dim_3"
+            android:layout_marginTop="@dimen/mdim_70"
+            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardElevation="@dimen/_5sdp"
+            app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dim_3"
+                android:orientation="vertical">
+
+                <!-- Scroll View -->
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dim_5">
+
+                        <!-- Email -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Email *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <EditText
+                            android:id="@+id/edt_email_id"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:ems="15"
+                            android:hint="Enter Your Email Id"
+                            android:inputType="textEmailAddress"
+                            android:paddingHorizontal="@dimen/dim_5" />
 
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:headerLayout="@layout/side_menu_header"
-        app:menu="@menu/home_screen_side_menu" />
+                        <!-- Choose Counselling Done By/Spoken on phone with -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:text=" Counselling By/Spoken on phone with *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <Spinner
+                            android:id="@+id/spnr_counselling"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:entries="@array/counsellors_name" />
 
 
-</androidx.drawerlayout.widget.DrawerLayout>
+                        <!-- Name -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:text="Enter Name *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+
+                        <EditText
+                            android:id="@+id/edt_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:ems="15"
+                            android:hint="Enter Your Name"
+                            android:padding="@dimen/_5sdp" />
+
+
+                        <!-- Phone Number -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:text="Mobile *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <EditText
+                            android:id="@+id/edt_mobile_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:ems="15"
+                            android:hint="Enter Your Phone Number"
+                            android:inputType="number|phone"
+                            android:padding="@dimen/_5sdp" />
+
+                        <!-- Date Of Birth -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:text="Date Of Birth *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <EditText
+                            android:id="@+id/edt_dob"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:ems="15"
+                            android:hint="Enter Your Date Of Birth"
+                            android:inputType="date"
+                            android:padding="@dimen/_5sdp" />
+
+                        <!-- Gender -->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:layout_marginBottom="@dimen/dim_3"
+                            android:text="Gender *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupGender"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/rdBtnMale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonGender"
+                                android:text="Male" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnFemale"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonGender"
+                                android:text="Female" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnOtr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonGender"
+                                android:text="Other" />
+                        </RadioGroup>
+
+                        <!-- Category -->
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:layout_marginBottom="@dimen/dim_3"
+                            android:text="Category *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+
+                        <RadioGroup
+                            android:id="@+id/radioGroupCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RadioButton
+                                android:id="@+id/rdBtnGEN"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonCategory"
+                                android:text="General" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnOBC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonCategory"
+                                android:text="OBC" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnSC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonCategory"
+                                android:text="SC" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnST"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonCategory"
+                                android:text="ST" />
+
+                            <RadioButton
+                                android:id="@+id/rdBtnEBC"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:onClick="checkButtonCategory"
+                                android:text="EBC" />
+
+                        </RadioGroup>
+
+                        <!-- Course -->
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dim_5"
+                            android:text=" Course *"
+                            android:textColor="@color/primary_blue"
+                            android:textSize="@dimen/_13ssp" />
+
+                        <Spinner
+                            android:id="@+id/spnr_course_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dim_16"
+                            android:layout_marginTop="@dimen/dim_3"
+                            android:background="@drawable/bg_square_input_box"
+                            android:entries="@array/course_name" />
+
+                    </LinearLayout>
+
+                </ScrollView>  <!-- Main child of scroll view close -->
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Submit Registration Form  Button-->
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_submit_registration"
+            android:layout_width="@dimen/dim_40"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_square_red"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/dim_5"
+            android:text="Submit"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

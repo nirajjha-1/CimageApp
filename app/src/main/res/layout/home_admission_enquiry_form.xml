@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="First Name *"
-                    android:textColor="@color/primary_blue"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp" />
 
                 <EditText
@@ -51,9 +51,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_square_input"
+                    android:background="@drawable/bg_square_input_box"
                     android:ems="15"
-                    android:hint="Enter Your First Name"
+                    android:hint="First Name"
                     android:padding="@dimen/_5sdp" />
 
                 <!-- Last Name -->
@@ -62,7 +62,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="Last Name *"
-                    android:textColor="@color/primary_blue"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp" />
 
                 <EditText
@@ -70,9 +70,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_square_input"
+                    android:background="@drawable/bg_square_input_box"
                     android:ems="15"
-                    android:hint="Enter Your Last Name"
+                    android:hint="Last Name"
                     android:padding="@dimen/_5sdp" />
 
 
@@ -82,7 +82,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="Mobile *"
-                    android:textColor="@color/primary_blue"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp" />
 
                 <EditText
@@ -90,9 +90,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_square_input"
+                    android:background="@drawable/bg_square_input_box"
                     android:ems="15"
-                    android:hint="Enter Your Phone Number"
+                    android:inputType="phone"
+                    android:hint="Phone Number"
                     android:padding="@dimen/_5sdp" />
 
                 <!-- Email -->
@@ -101,7 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text="Email *"
-                    android:textColor="@color/primary_blue"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp" />
 
                 <EditText
@@ -109,10 +110,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
                     android:layout_marginTop="@dimen/_5sdp"
-                    android:background="@drawable/bg_square_input"
+                    android:background="@drawable/bg_square_input_box"
                     android:ems="15"
                     android:inputType="textEmailAddress"
-                    android:hint="Enter Your Email Id"
+                    android:hint="Email Id"
                     android:padding="@dimen/_5sdp" />
 
                 <!-- Course -->
@@ -121,14 +122,15 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
                     android:text=" Course *"
-                    android:textColor="@color/primary_blue"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/_13ssp" />
 
                 <Spinner
                     android:id="@+id/spnr_course_name"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_30sdp"
-                    android:background="@drawable/bg_square_input"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/bg_square_input_box"
                     android:entries="@array/course_name" />
 
                 <!-- Send Enquiry Button -->
