@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dim_1"
+    android:background="@color/cimage_background">
+
+    <!-- College Logo -->
+    <ImageView
+        android:id="@+id/college_logo"
+        android:layout_width="@dimen/dim_30"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cimage_logo_circle" />
+
+    <!-- College Name -->
+    <TextView
+        android:id="@+id/college_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/college_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:text="Cimage Professional College"
+        android:textColor="@color/primary_blue"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Student Details -->
+
+    <LinearLayout
+        android:id="@+id/student_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/college_name"
+        android:paddingHorizontal="@dimen/dim_3"
+        android:orientation="vertical">
+
+        <!-- Student Name -->
+        <TextView
+            android:id="@+id/student_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/college_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dim_3"
+            android:layout_marginTop="16dp"
+            android:text="Student: John Doe"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <!-- Course -->
+        <TextView
+            android:id="@+id/course"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/student_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dim_3"
+            android:layout_marginTop="8dp"
+            android:text="Course: Computer Science"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <!-- University -->
+        <TextView
+            android:id="@+id/university"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/course"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dim_3"
+            android:layout_marginTop="8dp"
+            android:text="University: XYZ University"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <!-- Semester -->
+        <TextView
+            android:id="@+id/semester"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/university"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/dim_3"
+            android:layout_marginTop="8dp"
+            android:text="Semester: Spring 2023"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+
+    <!-- Fee Receipt CardView -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fee_receipt_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/student_details"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="@dimen/dim_3"
+        android:padding="16dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="@dimen/dim_2"
+        app:cardUseCompatPadding="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/college_name"
+            android:padding="@dimen/dim_5"
+            android:orientation="vertical">
+
+            <!-- Tuition Fee -->
+            <TextView
+                android:id="@+id/tuition_fee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/semester"
+                android:layout_centerHorizontal="true"
+                android:text="Tuition Fee: $500"
+                android:textSize="14sp" />
+
+            <!-- Lab Charge -->
+            <TextView
+                android:id="@+id/lab_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tuition_fee"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Lab Charge: $50"
+                android:textSize="14sp" />
+
+            <!-- Electricity Charge -->
+            <TextView
+                android:id="@+id/electricity_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lab_charge"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Electricity Charge: $20"
+                android:textSize="14sp" />
+
+            <!-- Books -->
+            <TextView
+                android:id="@+id/books"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/electricity_charge"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Books: $75"
+                android:textSize="14sp" />
+
+            <!-- Library Charge -->
+            <TextView
+                android:id="@+id/library_charge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/books"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="8dp"
+                android:text="Library Charge: $30"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Payment Status -->
+
+    <TextView
+        android:id="@+id/payment_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fee_receipt_card"
+        android:layout_marginStart="@dimen/dim_5"
+        android:layout_marginTop="16dp"
+        android:text="Payment Status: Paid"
+        android:textColor="@color/green"
+        android:textSize="14sp" />
+
+</RelativeLayout>

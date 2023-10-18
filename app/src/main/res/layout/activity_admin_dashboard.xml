@@ -29,21 +29,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/bg_screen_rectangle_round"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dim_5">
 
-                <!-- Log Out Button -->
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/admin_btn_logout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="@drawable/bg_square_red"
-                    android:text="Log Out"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/_12sdp"
-                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_screen_rectangle_round"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dim_16"
+                        android:layout_height="@dimen/dim_12"
+                        android:layout_marginStart="@dimen/dim_5"
+                        android:src="@drawable/profile_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_dashboard_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/dim_1"
+                        android:gravity="start"
+                        android:text="Username"
+                        android:textColor="@color/cimage_background"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
+
+                    <!-- Log Out Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/admin_btn_logout"
+                        android:layout_width="@dimen/dim_16"
+                        android:layout_height="@dimen/dim_16"
+                        android:layout_marginEnd="@dimen/dim_5"
+                        android:background="@drawable/logout_btn_layout"/>
+                </LinearLayout>
 
                 <!-- Dashboard Banner -->
                 <androidx.cardview.widget.CardView
@@ -60,10 +82,10 @@
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="20dp"
                         android:gravity="center_horizontal"
-                        android:text="DASHBOARD"
+                        android:text="ADMIN DASHBOARD"
                         android:textAllCaps="true"
                         android:textColor="@color/primary_blue"
-                        android:textSize="@dimen/_20sdp"
+                        android:textSize="@dimen/_16sdp"
                         android:textStyle="bold" />
 
                     <ImageView
@@ -89,9 +111,9 @@
                 android:orientation="vertical">
 
                 <GridLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:background="@color/cimage_background"
                     android:columnCount="2"
                     android:rowCount="6">
@@ -101,11 +123,9 @@
                         android:id="@+id/cv_add_student"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="0"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -138,60 +158,15 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Show Student's List Card View-->
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_show_student_list"
-                        android:layout_width="180dp"
-                        android:layout_height="wrap_content"
-                        android:layout_row="0"
-                        android:layout_column="1"
-                        android:layout_margin="@dimen/_5sdp"
-                        android:padding="10dp"
-                        app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
-                        app:cardElevation="@dimen/_5sdp"
-                        app:cardUseCompatPadding="true">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <ImageView
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_gravity="center"
-                                android:layout_margin="5dp"
-                                android:src="@drawable/student2" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_margin="5dp"
-                                android:gravity="center"
-                                android:paddingHorizontal="5dp"
-                                android:text="SHOW STUDENT"
-                                android:textAllCaps="true"
-                                android:textColor="@color/primary_blue"
-                                android:textSize="@dimen/_10sdp"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
                     <!-- Add Teacher's Card View-->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_add_teacher"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="0"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -229,12 +204,10 @@
                         android:id="@+id/cv_add_subject"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="1"
-                        android:layout_column="1"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -267,17 +240,139 @@
 
                     </androidx.cardview.widget.CardView>
 
+                    <!-- Add News & Events Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_add_news_event"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/news_events" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="ADD NEWS AND EVENT"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Add Notification Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_add_announcement"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/announcement2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="ADD NOTIFICATION"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Show Student's List Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_show_student_list"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/student2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="SHOW STUDENT"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
                     <!-- Add Attendance Card View-->
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cv_add_attendance"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="0"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -315,12 +410,11 @@
                         android:id="@+id/cv_show_attendance"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="2"
-                        android:layout_column="1"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
+
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -353,17 +447,15 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Add News & Events Card View-->
+                    <!-- Show Schedule View-->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_add_news_event"
+                        android:id="@+id/cv_show_schedule"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="0"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -377,7 +469,7 @@
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/news_events" />
+                                android:src="@drawable/schedule_3d" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -386,7 +478,7 @@
                                 android:layout_margin="5dp"
                                 android:gravity="center"
                                 android:paddingHorizontal="5dp"
-                                android:text="ADD NEWS AND EVENT"
+                                android:text="SHOW SCHEDULE"
                                 android:textAllCaps="true"
                                 android:textColor="@color/primary_blue"
                                 android:textSize="@dimen/_10sdp"
@@ -396,17 +488,15 @@
 
                     </androidx.cardview.widget.CardView>
 
-                    <!-- Announcement Card View-->
+                    <!-- Club's View-->
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cv_add_announcement"
+                        android:id="@+id/cv_clubs"
                         android:layout_width="180dp"
                         android:layout_height="wrap_content"
-                        android:layout_row="3"
-                        android:layout_column="1"
                         android:layout_margin="@dimen/_5sdp"
                         android:padding="10dp"
                         app:cardBackgroundColor="@color/white"
-                        app:cardCornerRadius="@dimen/_20sdp"
+                        app:cardCornerRadius="15dp"
                         app:cardElevation="@dimen/_5sdp"
                         app:cardUseCompatPadding="true">
 
@@ -420,7 +510,7 @@
                                 android:layout_height="100dp"
                                 android:layout_gravity="center"
                                 android:layout_margin="5dp"
-                                android:src="@drawable/announcement2" />
+                                android:src="@drawable/club" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -429,7 +519,48 @@
                                 android:layout_margin="5dp"
                                 android:gravity="center"
                                 android:paddingHorizontal="5dp"
-                                android:text="ADD ANNOUNCEMENT"
+                                android:text="CLUB'S"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Fee View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_fees"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/wallet" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="FEES"
                                 android:textAllCaps="true"
                                 android:textColor="@color/primary_blue"
                                 android:textSize="@dimen/_10sdp"
@@ -440,8 +571,11 @@
                     </androidx.cardview.widget.CardView>
 
                 </GridLayout>
+
             </LinearLayout>
+
         </ScrollView>
+
     </LinearLayout>    <!-- Closing Linear Layout (ScrollView Single Child) -->
 
     <com.google.android.material.navigation.NavigationView

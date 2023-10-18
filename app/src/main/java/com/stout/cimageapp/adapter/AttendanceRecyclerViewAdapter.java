@@ -1,6 +1,7 @@
 package com.stout.cimageapp.adapter;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,23 +37,43 @@ public class AttendanceRecyclerViewAdapter extends RecyclerView.Adapter<Attendan
     }
 
     @Override
-    public void onBindViewHolder(@NonNull AttendanceRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final StudentAttendanceListModel getDataAdapter1 = getDataAdapter.get(position);
 
         holder.tv_stud_id.setText(getDataAdapter1.getStudentId());
         holder.tv_stud_name.setText(getDataAdapter1.getStudent_name());
         holder.tv_attendance_status.setText(getDataAdapter1.getAttedance_status());
 
+
+
+//        if(getDataAdapter1.getAttedance_status().equals("present")){
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                holder.tv_attendance_status.setTextColor(context.getColor(R.color.green));
+//            }
+//        }
+//        else{
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//                holder.tv_attendance_status.setTextColor(context.getColor(R.color.cimage_red_btn));
+//            }
+//        }
+
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(holder.checkBox.isChecked()){
                     holder.tv_attendance_status.setText("Present");
-                    getDataAdapter1.setAttedance_status("Present");
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        holder.tv_attendance_status.setTextColor(context.getColor(R.color.green));
+                    }
+                    getDataAdapter1.setAttedance_status("present");
                 }
                 else if(!holder.checkBox.isChecked()){
                     holder.tv_attendance_status.setText("Absent");
-                    getDataAdapter1.setAttedance_status("Absent");
+                    getDataAdapter1.setAttedance_status("absent");
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        holder.tv_attendance_status.setTextColor(context.getColor(R.color.cimage_red_btn));
+                    }
                 }
             }
         });

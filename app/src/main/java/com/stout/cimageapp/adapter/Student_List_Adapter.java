@@ -2,12 +2,15 @@ package com.stout.cimageapp.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.stout.cimageapp.ExamResultActivity;
 import com.stout.cimageapp.R;
 import com.stout.cimageapp.models.Semester_Model;
 import com.stout.cimageapp.models.Student_List_Model;
@@ -39,7 +42,9 @@ public class Student_List_Adapter extends BaseAdapter {
     }
 
     class CourseViewHolder{
-        TextView tv_stud_name, tv_stud_id, tv_stud_course, tv_stud_university, tv_stud_semester, tv_stud_father_name, tv_stud_mob_number, tv_stud_address;
+        TextView tv_stud_name, tv_stud_id, tv_stud_course, tv_stud_university, tv_stud_semester,
+                tv_stud_father_name, tv_stud_mob_number, tv_stud_address;
+        LinearLayout line_main;
     }
 
     @Override
@@ -52,12 +57,13 @@ public class Student_List_Adapter extends BaseAdapter {
             holder = new CourseViewHolder();
             holder.tv_stud_name = (TextView) view.findViewById(R.id.tv_stud_name);
             holder.tv_stud_id = (TextView) view.findViewById(R.id.tv_stud_id);
-            holder.tv_stud_course = (TextView) view.findViewById(R.id.tv_stud_course);
-            holder.tv_stud_university = (TextView) view.findViewById(R.id.tv_stud_university);
-            holder.tv_stud_semester = (TextView) view.findViewById(R.id.tv_stud_semester);
+//            holder.tv_stud_course = (TextView) view.findViewById(R.id.tv_stud_course);
+//            holder.tv_stud_university = (TextView) view.findViewById(R.id.tv_stud_university);
+//            holder.tv_stud_semester = (TextView) view.findViewById(R.id.tv_stud_semester);
             holder.tv_stud_father_name = (TextView) view.findViewById(R.id.tv_stud_father_name);
             holder.tv_stud_mob_number = (TextView) view.findViewById(R.id.tv_stud_mob_number);
             holder.tv_stud_address = (TextView) view.findViewById(R.id.tv_stud_address);
+            holder.line_main = view.findViewById(R.id.line_main);
 
             view.setTag(holder);
         }
@@ -69,12 +75,19 @@ public class Student_List_Adapter extends BaseAdapter {
 
         holder.tv_stud_name.setText(obj.getStud_name().toString());
         holder.tv_stud_id.setText(obj.getStud_id().toString());
-        holder.tv_stud_course.setText(obj.getStud_course().toString());
-        holder.tv_stud_university.setText(obj.getStud_university().toString());
-        holder.tv_stud_semester.setText(obj.getStud_semester().toString());
+//        holder.tv_stud_course.setText(obj.getStud_course().toString());
+//        holder.tv_stud_university.setText(obj.getStud_university().toString());
+//        holder.tv_stud_semester.setText(obj.getStud_semester().toString());
         holder.tv_stud_father_name.setText(obj.getStud_father_name().toString());
         holder.tv_stud_mob_number.setText(obj.getStud_mob_number().toString());
         holder.tv_stud_address.setText(obj.getStud_address().toString());
+
+        holder.line_main.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, ExamResultActivity.class));
+            }
+        });
 
         return view;
     }

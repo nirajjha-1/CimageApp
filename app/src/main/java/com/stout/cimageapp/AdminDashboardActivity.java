@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 import com.stout.cimageapp.screens.ShowStudentsListActivity;
@@ -33,9 +36,12 @@ public class AdminDashboardActivity extends AppCompatActivity {
 
 
     // dashboard items
-    CardView cv_add_student, cv_show_student_list, cv_add_teacher, cv_add_subject, cv_add_attendance, cv_show_attendance, cv_add_news_event, cv_add_announcement;
+    CardView cv_add_student, cv_show_student_list, cv_add_teacher, cv_add_subject,
+            cv_add_attendance, cv_show_attendance, cv_add_news_event, cv_add_announcement, cv_show_schedule, cv_clubs, cv_fees;
 
     Button admin_btn_logout;
+
+    TextView tv_dashboard_username;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -54,7 +60,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         navigationView = findViewById(R.id.navigationView);
 
         // navigation bar item select handle
-        MasterFunction.setNavigationView(navigationView,mContext);
+        MasterFunction.setNavigationView(navigationView, mContext);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nevigation_open, R.string.nevigation_close);
         drawerLayout.addDrawerListener(toggle);
@@ -69,11 +75,24 @@ public class AdminDashboardActivity extends AppCompatActivity {
         cv_show_attendance = findViewById(R.id.cv_show_attendance);
         cv_add_news_event = findViewById(R.id.cv_add_news_event);
         cv_add_announcement = findViewById(R.id.cv_add_announcement);
+        cv_show_schedule = findViewById(R.id.cv_show_schedule);
+        cv_clubs = findViewById(R.id.cv_clubs);
+        cv_fees = findViewById(R.id.cv_fees);
+        tv_dashboard_username = findViewById(R.id.tv_dashboard_username);
+
+        // Get SharedPreferences instance
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", Context.MODE_PRIVATE);
+
+        // Retrieve data from SharedPreferences
+        String username = sharedPreferences.getString("username", "Username");
+
+        // Set data to TextView
+        tv_dashboard_username.setText("Hello! "+username);
 
         // Logout Button
         admin_btn_logout = findViewById(R.id.admin_btn_logout);
 
-// Logout Button
+        // Logout Button
         admin_btn_logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,7 +105,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         cv_add_student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(AdminDashboardActivity.this,AddStudentActivity.class));
+                startActivity(new Intent(AdminDashboardActivity.this, AddStudentActivity.class));
             }
         });
 
@@ -145,6 +164,19 @@ public class AdminDashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminDashboardActivity.this, AddAnnouncementActivity.class));
             }
         });
+        cv_show_schedule.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminDashboardActivity.this, ScheduleActivity.class));
+            }
+        });
+
+        cv_fees.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminDashboardActivity.this, FeePaymentActivity.class));
+            }
+        });
 
     }
 
@@ -162,10 +194,10 @@ public class AdminDashboardActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        if(id==R.id.action_logout){
+        if (id == R.id.action_logout) {
             SharedPreferences sp = getSharedPreferences("user_info", Context.MODE_PRIVATE);
             SharedPreferences.Editor spe = sp.edit();
-            spe.putBoolean("islogin",false);
+            spe.putBoolean("islogin", false);
             spe.apply();
             Intent intent = new Intent(AdminDashboardActivity.this, AdminLoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

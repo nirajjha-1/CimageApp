@@ -64,7 +64,9 @@
                 <!-- Scroll View -->
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -97,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dim_5"
-                            android:text=" Counselling By/Spoken on phone with *"
+                            android:text="Counselling By/Spoken on phone with *"
                             android:textColor="@color/primary_blue"
                             android:textSize="@dimen/_13ssp" />
 

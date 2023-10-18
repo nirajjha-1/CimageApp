@@ -29,6 +29,24 @@
         <item>Don\'t Remember The Name</item>
     </string-array>
 
+    <string-array name="announcement_type">
+        <item>-- Please choose an option --</item>
+        <item>Academic Announcements</item>
+        <item>Event Announcements</item>
+        <item>Club and Organization Announcements</item>
+        <item>Community and Volunteer Opportunities</item>
+        <item>Emergency Notifications</item>
+        <item>General News and Updates</item>
+        <item>Feedback and Surveys</item>
+        <item>Technology and IT Announcements</item>
+    </string-array>
+
+    <string-array name="login_as">
+        <item>-- Please choose an option --</item>
+        <item>Admin</item>
+        <item>Faculty</item>
+    </string-array>
+
 
     <string name="nevigation_open">Open Navigation Drawer</string>
     <string name="nevigation_close">Close Navigation Drawer</string>

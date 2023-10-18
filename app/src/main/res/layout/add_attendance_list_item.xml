@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/add_attendance_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:elevation="@dimen/dim_5"
+        app:cardUseCompatPadding="true"
         android:layout_gravity="center">
 
         <LinearLayout
@@ -26,6 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="10"
                 android:text="Student Id"
+                android:textStyle="bold"
                 android:textColor="@color/black"
                 />
 
@@ -50,7 +55,7 @@
                 android:layout_width="10dp"
                 android:layout_height="30dp"
                 android:layout_weight="10"
-                android:gravity="right"
+                android:gravity="center"
                 />
 
         </LinearLayout>

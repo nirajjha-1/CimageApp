@@ -20,13 +20,13 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="20dp">
+            >
 
             <ImageView
                 android:id="@+id/event_item_img"
-                android:layout_width="@dimen/_250sdp"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/_200sdp"
-                android:scaleType="centerCrop"
+                android:scaleType="fitXY"
                 android:src="@drawable/cimage_logo_circle"
                 android:layout_marginBottom="@dimen/_10sdp"
                 />
@@ -39,7 +39,9 @@
                 android:textColor="@color/primary_blue"
                 android:textSize="@dimen/_20sdp"
                 android:textStyle="bold"
+                android:gravity="center"
                 android:layout_marginBottom="@dimen/_5sdp"
+               android:layout_marginHorizontal="10dp"
                 />
 
             <TextView
@@ -50,6 +52,8 @@
                 android:textColor="@color/cimage_text_light_grey"
                 android:textSize="@dimen/_15sdp"
                 android:gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginBottom="20dp"
                 />
 
         </LinearLayout>

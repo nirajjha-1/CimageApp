@@ -33,7 +33,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:gravity="center_horizontal"
-                        android:text="ADD ANNOUNCEMENT"
+                        android:text="ADD NOTIFICATION"
                         android:textAllCaps="true"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_20sdp" />
@@ -82,7 +82,7 @@
                             android:textSize="@dimen/_14sdp" />
 
                         <EditText
-                            android:id="@+id/edt_news_event_name"
+                            android:id="@+id/user_id"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginStart="20dp"
@@ -104,7 +104,7 @@
                             android:textSize="@dimen/_14sdp" />
 
                         <EditText
-                            android:id="@+id/edt_dscr"
+                            android:id="@+id/notification_title"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginStart="20dp"
@@ -125,7 +125,7 @@
                             android:textSize="@dimen/_14sdp" />
 
                         <EditText
-                            android:id="@+id/edt_image_url"
+                            android:id="@+id/notification"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginStart="20dp"
@@ -152,11 +152,12 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="20dp"
                             android:layout_marginEnd="20dp"
+                            android:entries="@array/announcement_type"
                             android:background="@drawable/bg_square_input_box" />
 
 
                         <androidx.appcompat.widget.AppCompatButton
-                            android:id="@+id/btn_add_news_event"
+                            android:id="@+id/btn_add_announcement"
                             android:layout_width="150dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

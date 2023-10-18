@@ -11,7 +11,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -96,27 +96,30 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/bg_square_input_box" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/add_attendance_recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginVertical="@dimen/_15sdp" />
-
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/btn_submit_attendance"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:layout_margin="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/dim_20"
+                        android:paddingHorizontal="@dimen/dim_10"
+                        android:layout_gravity="center"
+                        android:layout_marginVertical="@dimen/dim_10"
                         android:background="@drawable/bg_square_send_enq"
                         android:text="SUBMIT"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/_15sdp" />
+                        android:textSize="@dimen/_14sdp" />
 
                 </LinearLayout>
 
             </ScrollView>
 
         </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/add_attendance_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dim_5"
+            />
 
     </LinearLayout>
 

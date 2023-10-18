@@ -104,7 +104,7 @@
                             android:textSize="@dimen/_14sdp" />
 
                         <EditText
-                            android:id="@+id/edt_dscr"
+                            android:id="@+id/edt_news_event_dscr"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginStart="20dp"
@@ -125,7 +125,7 @@
                             android:textSize="@dimen/_14sdp" />
 
                         <EditText
-                            android:id="@+id/edt_image_url"
+                            android:id="@+id/edt_news_event_image_url"
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginStart="20dp"

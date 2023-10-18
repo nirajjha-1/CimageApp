@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -31,6 +32,9 @@ import com.stout.cimageapp.utils.Config;
 import com.stout.cimageapp.utils.MasterFunction;
 import com.stout.cimageapp.utils.URLS;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -39,14 +43,12 @@ public class AdminLoginActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
     Context mContext;
-
-
 
     private String ADMIN_LOGIN_URL = Config.baseUrl+"cimage/admin_login.php";
     EditText edt_username,edt_password;
     Button btn_admin_login;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +82,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                 String username = edt_username.getText().toString();
                 String password = edt_password.getText().toString();
 
+
                 if(username.isEmpty()){
                     edt_username.setError("Write login user name");
                 } else if (password.isEmpty()) {
@@ -89,26 +92,41 @@ public class AdminLoginActivity extends AppCompatActivity {
                     progressDialog.setMessage("Login, Authenticate please wait...");
                     progressDialog.show();
 
-
                     RequestQueue mRequesetQueue = Volley.newRequestQueue(AdminLoginActivity.this);
                     StringRequest stringRequest = new StringRequest(Request.Method.POST, URLS.ADMIN_LOGIN_URL,
                             new Response.Listener<String>() {
                                 @Override
                                 public void onResponse(String response) {
                                     progressDialog.dismiss();
-//                                    Toast.makeText(AdminLoginActivity.this, "" + response, Toast.LENGTH_SHORT).show();
+                                    // Toast.makeText(AdminLoginActivity.this, "" + response, Toast.LENGTH_SHORT).show();
+                                    try {
+                                        JSONObject jsonObject = new JSONObject(response);
+                                        int success = jsonObject.getInt("success");
+                                        String message = jsonObject.getString("message");
+                                        String userId = jsonObject.getString("userId");
 
-                                    if (response.trim().toString().equals("success")) {
-                                        SharedPreferences sp = getSharedPreferences("user_info", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor spe = sp.edit();
-                                        spe.putBoolean("islogin", true);
-                                        spe.apply();
-                                        Intent intent = new Intent(AdminLoginActivity.this, AdminDashboardActivity.class);
-                                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                        startActivity(intent);
-                                        finish();
-                                    } else if (response.equals("failed")) {
-                                        Toast.makeText(AdminLoginActivity.this, "Invalid User ID/Password", Toast.LENGTH_SHORT).show();
+                                        if(success==1){
+                                            int isAdmin = jsonObject.getInt("isAdmin");
+                                            SharedPreferences sp = getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                                            SharedPreferences.Editor spe =sp.edit();
+                                            spe.putBoolean("islogin",true);
+                                            spe.putString("userId",userId);
+                                            spe.putString("username",username);
+                                            spe.putInt("isAdmin",isAdmin);
+                                            spe.apply();
+
+                                         MasterFunction.MoveDashboard(AdminLoginActivity.this,isAdmin);
+
+                                        }
+                                        else if(success==0){
+                                            Toast.makeText(AdminLoginActivity.this, "Invalid User Id/password", Toast.LENGTH_SHORT).show();
+                                        }
+                                        else{
+                                            Toast.makeText(AdminLoginActivity.this, "Error Occurred : "+response, Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                    catch (JSONException ex){
+
                                     }
                                 }
                             }, new Response.ErrorListener() {
@@ -123,6 +141,7 @@ public class AdminLoginActivity extends AppCompatActivity {
                             HashMap hashMap = new HashMap();
                             hashMap.put("user_name",username);
                             hashMap.put("password",password);
+
                             return hashMap;
                         }
                     };

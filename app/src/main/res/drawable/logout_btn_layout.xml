@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background Color with Corner Radius -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/cimage_red_btn" />
+            <corners android:radius="20dp" /> <!-- Adjust the radius as needed -->
+        </shape>
+    </item>
+
+    <!-- Image -->
+    <item
+        android:drawable="@drawable/btn_logout_24"
+        android:gravity="center" />
+
+
+</layer-list>

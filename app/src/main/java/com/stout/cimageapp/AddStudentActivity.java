@@ -71,6 +71,8 @@ public class AddStudentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_student);
         mContext = this;
 
+
+
         // tool bar
 //        setSupportActionBar(toolbar);
 //
@@ -140,8 +142,10 @@ public class AddStudentActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(String response) {
                                     pDialog.dismiss();
+                                    MasterFunction.showDialog(mContext,"Success","Student added successfully",1);
+
 //                                    showSuccessMessage(); // Implement this method to show a success message
-                                    Toast.makeText(AddStudentActivity.this, "Response : " + response, Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(AddStudentActivity.this, "Response : " + response, Toast.LENGTH_SHORT).show();
                                 }
                             }, new Response.ErrorListener() {
                         @Override

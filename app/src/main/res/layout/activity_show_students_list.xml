@@ -85,7 +85,7 @@
                     android:background="@drawable/bg_square_input_box" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_add_subject"
+                    android:id="@+id/btn_show_student"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="20dp"

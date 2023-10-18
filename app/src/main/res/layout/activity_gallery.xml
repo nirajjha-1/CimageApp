@@ -18,18 +18,11 @@
         <!-- Tool Bar -->
         <include layout="@layout/my_tool_bar" />
 
-        <!-- Scroll View -->
-        <ScrollView
+        <ListView
+            android:id="@+id/list_gallery"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-                <ListView
-                    android:id="@+id/list_gallery"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:divider="@null"/>
-
-        </ScrollView>
+            android:layout_height="match_parent"
+            android:divider="@null"/>
 
     </LinearLayout>
 

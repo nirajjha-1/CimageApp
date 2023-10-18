@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
+import com.stout.cimageapp.adapter.AmenitiesListAdapter;
 import com.stout.cimageapp.utils.Config;
 import com.stout.cimageapp.utils.MasterFunction;
 import com.stout.cimageapp.utils.URLS;
@@ -80,6 +82,10 @@ public class HomeActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+        ListView lst_amenities = findViewById(R.id.lst_amenities);
+        AmenitiesListAdapter amenitiesListAdapter = new AmenitiesListAdapter(HomeActivity.this, MasterFunction.getAmenities());
+        lst_amenities.setAdapter(amenitiesListAdapter);
+
         // enquiry form
         edt_fname = findViewById(R.id.edt_fname);
         edt_lname = findViewById(R.id.edt_lname);
@@ -119,6 +125,12 @@ public class HomeActivity extends AppCompatActivity {
                                     @Override
                                     public void onResponse(String response) {
                                         pDialog.dismiss();
+                                        edt_fname.setText("");
+                                        edt_lname.setText("");
+                                        edt_email_id.setText("");
+                                        edt_mobile_number.setText("");
+
+                                        MasterFunction.showDialog(mContext,"Success","Enquiry submitted successfully!",0);
 //                                        showSuccessMessage(); // Implement this method to show a success message
 //                                        Toast.makeText(HomeActivity.this, "Response : " + response, Toast.LENGTH_SHORT).show();
                                     }

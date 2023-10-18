@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ScheduleActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_210sdp"
+        android:background="@drawable/bg_screen_rectangle_round"
+        android:orientation="vertical"
+        android:paddingTop="20dp">
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_110"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="@dimen/mdim_80"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="@dimen/_30sdp"
+        app:cardElevation="@dimen/_3sdp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginHorizontal="10dp"
+                android:text="Course"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                />
+
+            <Spinner
+                android:id="@+id/spnr_course_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_square_input_box" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="@dimen/dim_5"
+                android:text="Semester"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"/>
+
+            <Spinner
+                android:id="@+id/spnr_semester_name"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_16"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginTop="@dimen/dim_3"
+                android:background="@drawable/bg_square_input_box" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_square_send_enq"
+                android:text="SHOW"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/dim_5"
+        app:cardBackgroundColor="@color/primary_blue"
+        app:cardUseCompatPadding="true">
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dim_18"
+                >
+
+                <!-- Monday -->
+                <TextView
+                    android:id="@+id/sch_mon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Monday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <!-- Tuesday -->
+                <TextView
+                    android:id="@+id/sch_tue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Tuesday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <!-- Wednesday -->
+                <TextView
+                    android:id="@+id/sch_wed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Wednesday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <!-- Thursday -->
+                <TextView
+                    android:id="@+id/sch_thu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Thursday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <!-- Friday -->
+                <TextView
+                    android:id="@+id/sch_fri"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Friday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+                <!-- Saturday -->
+                <TextView
+                    android:id="@+id/sch_sat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/dim_1"
+                    android:text="Saturday"
+                    android:gravity="center"
+                    android:layout_marginHorizontal="@dimen/dim_3"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <FrameLayout
+        android:id="@+id/frag_schedule"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cimage_background"
+        />
+
+</LinearLayout>

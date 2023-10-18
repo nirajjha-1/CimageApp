@@ -1,13 +1,13 @@
 package com.stout.cimageapp.utils;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Spinner;
@@ -24,13 +24,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.navigation.NavigationView;
-import com.stout.cimageapp.AddStudentActivity;
+import com.stout.cimageapp.AdminDashboardActivity;
 import com.stout.cimageapp.AdminLoginActivity;
 import com.stout.cimageapp.EventActivity;
-import com.stout.cimageapp.GalleryActivity;
+import com.stout.cimageapp.FacultyDashboardActivity;
 import com.stout.cimageapp.HomeActivity;
+import com.stout.cimageapp.NotifiacationActivity;
 import com.stout.cimageapp.R;
-import com.stout.cimageapp.RegistrationForm;
 import com.stout.cimageapp.adapter.Course_List_Adapter;
 import com.stout.cimageapp.adapter.Semester_List_Adapter;
 import com.stout.cimageapp.adapter.SubjectListAdapter;
@@ -44,7 +44,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,14 +67,41 @@ public class MasterFunction {
                     Intent intent = new Intent(mContext, EventActivity.class);
                     mContext.startActivity(intent);
                     ((Activity) mContext).finish();
-                } else if (id == R.id.optGallery) {
-                    Intent intent = new Intent(mContext, GalleryActivity.class);
+                }
+                else if (id == R.id.optNotification) {
+                    Intent intent = new Intent(mContext, NotifiacationActivity.class);
                     mContext.startActivity(intent);
                     ((Activity) mContext).finish();
-                } else if (id == R.id.optLogin) {
-                    Intent intent = new Intent(mContext, AdminLoginActivity.class);
-                    mContext.startActivity(intent);
-                    ((Activity) mContext).finish();
+                }
+                else if (id == R.id.optLogin) {
+
+
+                    SharedPreferences sp = mContext.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                    boolean isLogin = sp.getBoolean("islogin",false);
+                    if(isLogin){
+                        int isAdmin =sp.getInt("isAdmin",0);
+
+                        MasterFunction.MoveDashboard(mContext,isAdmin);
+                    }
+                    else{
+                        Intent intent = new Intent(mContext, AdminLoginActivity.class);
+                        mContext.startActivity(intent);
+
+                    }
+                } else if (id == R.id.instagram) {
+                    Uri uri = Uri.parse("https://www.instagram.com/cimagecollege");
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,uri));
+                } else if (id == R.id.facebook) {
+                    Uri uri = Uri.parse("https://www.facebook.com/cimage");
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,uri));
+
+                } else if (id == R.id.youtube) {
+                    Uri uri = Uri.parse("https://www.youtube.com/@cimagepatna");
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,uri));
+
+                } else if (id == R.id.linkedin) {
+                    Uri uri = Uri.parse("https://www.linkedin.com/company/cimage?originalSubdomain=in");
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW,uri));
                 }
                 return true;
             }
@@ -227,6 +257,7 @@ public class MasterFunction {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                Log.d("response : ",response);
                 if (finalProg != null) {
                     if (finalProg.isShowing()) {
                         finalProg.dismiss();
@@ -265,7 +296,7 @@ public class MasterFunction {
 
     // show dialog
 
-    public static void showDialog(Context context,String title,String msg,int status){
+    public static void showDialog(Context context, String title, String msg, int status) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle(title);
         builder.setMessage(msg);
@@ -273,14 +304,61 @@ public class MasterFunction {
         builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                if(status==1){
-                    ((Activity)context).finish();
+                if (status == 1) {
+                    ((Activity) context).finish();
                 }
             }
         });
 
-        AlertDialog dialog =builder.create();
+        AlertDialog dialog = builder.create();
         dialog.show();
     }
 
+    public static String parseDateToddMMyyyy(String time,String outputPattern,String inputPattern ) {
+
+        SimpleDateFormat inputFormat = new SimpleDateFormat(inputPattern);
+        SimpleDateFormat outputFormat = new SimpleDateFormat(outputPattern);
+
+        Date date = null;
+        String str = null;
+
+        try {
+            date = inputFormat.parse(time);
+            str = outputFormat.format(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return str;
+    }
+
+    public static List<String> getAmenities(){
+        List<String> list = new ArrayList<>();
+        list.add("World Class Infrastructure");
+        list.add("Hi-Tech Digital Library ");
+        list.add("Ranked No.1 College in Bihar by Times of India");
+        list.add("Best B-School of India East by ASSOCHAM");
+        list.add("Modern Facility Computer Labs");
+        list.add("Triple mode education (Classroom+Zoom+Youtube)");
+        list.add("Job Oriented Trainings with IIT Collaboration");
+        list.add("'Most Emerging Institute for Management Education Award");
+        list.add("Top BCA College in Patna, Bihar");
+        return list;
+    }
+
+    public static void MoveDashboard(Context ctx,int isAdmin){
+        if(isAdmin==1){
+            Intent intent = new Intent(ctx, AdminDashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ctx.startActivity(intent);
+            ((Activity) ctx).finish();
+        }
+        else{
+            Intent intent = new Intent(ctx, FacultyDashboardActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            ctx.startActivity(intent);
+            ((Activity) ctx).finish();
+        }
+    }
+
 }
+

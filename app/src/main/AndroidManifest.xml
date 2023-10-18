@@ -15,6 +15,21 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".FeePaymentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FacultyDashboardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ScheduleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotifiacationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExamResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddAnnouncementActivity"
             android:exported="false" />
         <activity

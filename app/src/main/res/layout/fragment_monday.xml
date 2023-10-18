@@ -3,12 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.gallery.home.slideshow.slideshow">
+    android:layout_gravity="center"
+    android:background="@color/green"
+    tools:context=".mondayFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:gravity="center"
+        android:textSize="@dimen/_20sdp"
+        android:textColor="@color/white"
+        android:text="Comming Soon..." />
 
 </FrameLayout>

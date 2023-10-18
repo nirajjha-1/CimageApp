@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".FacultyDashboardActivity"
+    tools:openDrawer="">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/cimage_background"
+        android:orientation="vertical">
+
+        <!-- Tool Bar -->
+        <include layout="@layout/my_tool_bar" />
+
+        <!-- Dashboard Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_screen_rectangle_round"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dim_5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_screen_rectangle_round"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dim_16"
+                        android:layout_height="@dimen/dim_12"
+                        android:layout_marginStart="@dimen/dim_5"
+                        android:src="@drawable/profile_icon" />
+
+                    <TextView
+                        android:id="@+id/tv_dashboard_username"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="@dimen/dim_1"
+                        android:gravity="start"
+                        android:text="Username"
+                        android:textColor="@color/cimage_background"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
+
+                    <!-- Log Out Button -->
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/admin_btn_logout"
+                        android:layout_width="@dimen/dim_16"
+                        android:layout_height="@dimen/dim_16"
+                        android:layout_marginEnd="@dimen/dim_5"
+                        android:background="@drawable/logout_btn_layout"/>
+                </LinearLayout>
+
+                <!-- Dashboard Banner -->
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="#E8FFFFFF"
+                    app:cardCornerRadius="@dimen/_30sdp"
+                    app:cardElevation="@dimen/_3sdp"
+                    app:cardUseCompatPadding="true">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        android:gravity="center_horizontal"
+                        android:text="FACULTY DASHBOARD"
+                        android:textAllCaps="true"
+                        android:textColor="@color/primary_blue"
+                        android:textSize="@dimen/_16sdp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_marginTop="30dp"
+                        android:src="@drawable/dashboard" />
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </LinearLayout> <!-- Dashboard Parent Closing -->
+
+        <!-- Scroll View -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/cimage_background"
+                android:orientation="vertical">
+
+                <GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@color/cimage_background"
+                    android:columnCount="2"
+                    android:rowCount="6">
+
+
+                    <!-- Add Attendance Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_add_attendance"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/attendance2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="ADD ATTENDANCE"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Show Attendance Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_show_attendance"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/attendance3" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="SHOW ATTENDANCE"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Show Student's List Card View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_show_student_list"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/student2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="SHOW STUDENT"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Show Schedule View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_show_schedule"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/schedule_3d" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="SHOW SCHEDULE"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Club's View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_clubs"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/club" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="CLUB'S"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- Fees's View-->
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_fees"
+                        android:layout_width="180dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp"
+                        android:padding="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="15dp"
+                        app:cardElevation="@dimen/_5sdp"
+                        app:cardUseCompatPadding="true">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_gravity="center"
+                                android:layout_margin="5dp"
+                                android:src="@drawable/wallet" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_margin="5dp"
+                                android:gravity="center"
+                                android:paddingHorizontal="5dp"
+                                android:text="FEES"
+                                android:textAllCaps="true"
+                                android:textColor="@color/primary_blue"
+                                android:textSize="@dimen/_10sdp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>    <!-- Closing Linear Layout (ScrollView Single Child) -->
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/side_menu_header"
+        app:menu="@menu/home_screen_side_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

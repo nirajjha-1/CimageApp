@@ -150,7 +150,7 @@ public class AddAttendanceActivity extends AppCompatActivity {
                 HashMap hashMap = new HashMap();
                 hashMap.put("course_id",courseId);
 
-                fetchStudentList(hashMap);
+                //fetchStudentList(hashMap);
                 MasterFunction.fetchSubjectList(mContext,hashMap,spnr_subject_name);
             }
 
@@ -166,6 +166,12 @@ public class AddAttendanceActivity extends AppCompatActivity {
                 TextView tv_id = view.findViewById(R.id.tv_id);
                 TextView tv_name = view.findViewById(R.id.tv_name);
                 subjectId = tv_id.getText().toString();
+
+                HashMap hashMap = new HashMap();
+                hashMap.put("courseId",courseId);
+                hashMap.put("subjectId",subjectId);
+
+                fetchStudentList(hashMap);
             }
 
             @Override
@@ -190,7 +196,7 @@ public class AddAttendanceActivity extends AppCompatActivity {
                     if(success == 0){
                         MasterFunction.showDialog(mContext,"Failed",message,0);
                     }else if(success ==1){
-                        MasterFunction.showDialog(mContext,"Success",message,1);
+                        MasterFunction.showDialog(mContext,"Success","Attendance added successfully",1);
                     }
                     else{
                         MasterFunction.showDialog(mContext,"Error Occurred",message,0);
@@ -203,23 +209,24 @@ public class AddAttendanceActivity extends AppCompatActivity {
     }
 
     void fetchStudentList(HashMap hashMap) {
-        String url = Config.baseUrl + "cimage/fetch_subject_list.php";
-        //RequestQueue Initialized
-        RequestQueue mRequestQueue = Volley.newRequestQueue(this);
+        String url = Config.baseUrl + "cimage/fetch_student_at_list.php";
 
-        // Request Initialized
-        StringRequest mStringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
 
+        MasterFunction.request(mContext, url, hashMap, true, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-//                Toast.makeText(ShowStudentsListActivity.this, "" + response.length(), Toast.LENGTH_SHORT).show();
                 try {
                     JSONObject object = new JSONObject(response);
                     if (object.has("success")) {
                         JSONArray array = object.getJSONArray("success");
                         ArrayList studentlistmodel = new ArrayList<>();
 
+                        studentAttendanceListModels.clear();
+
                         for (int i = 0; i < array.length(); i++) {
+
+                            StudentAttendanceListModel st=   new StudentAttendanceListModel();
+
                             JSONObject jsonObject = array.getJSONObject(i);
                             String stud_name = jsonObject.getString("stud_name");
                             String stud_id = jsonObject.getString("stud_id");
@@ -229,24 +236,29 @@ public class AddAttendanceActivity extends AppCompatActivity {
                             String stud_father_name = jsonObject.getString("stud_father_name");
                             String stud_mob_number = jsonObject.getString("stud_mob_number");
                             String stud_address = jsonObject.getString("stud_address");
-                            studentlistmodel.add(new Student_List_Model(stud_name, stud_id, stud_course, stud_university, stud_semester, stud_father_name, stud_mob_number, stud_address));
+
+                            st.setStudent_name(stud_name);
+                            st.setStudentId(stud_id);
+                            st.setCourseId(stud_course);
+                            st.setAttedance_status("absent");
+                            studentAttendanceListModels.add(st);
+
+                            // studentlistmodel.add(new Student_List_Model(stud_name, stud_id, stud_course, stud_university, stud_semester, stud_father_name, stud_mob_number, stud_address));
                         }
                     }
 
-                    if (list_student != null) {
-                        Student_List_Adapter student_list_adapter = new Student_List_Adapter(mContext,studentlistmodel);
-                        list_student.setAdapter(student_list_adapter);
-                    }
+//                    Student_List_Adapter student_list_adapter = new Student_List_Adapter(mContext,studentlistmodel);
+//                    list_student.setAdapter(student_list_adapter);
+
+                    AttendanceRecyclerViewAdapter  student_list_adapter = new AttendanceRecyclerViewAdapter(mContext,studentAttendanceListModels);
+
+                    attendanceRecyclerView.setAdapter(student_list_adapter);
                 } catch (JSONException ex) {
+                    Log.e(TAG, "onResponse: "+ex.toString() );
                 }
             }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Log.i(TAG, "Error : " + error.toString());
-            }
-        });
-        mRequestQueue.add(mStringRequest);
+        },false);
+
     }
 
 }

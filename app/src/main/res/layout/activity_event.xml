@@ -10,41 +10,25 @@
     tools:context=".MainActivity"
     tools:openDrawer="">
 
-    <!-- Scroll View -->
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:background="@color/cimage_background"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <!-- Tool Bar -->
+        <include layout="@layout/my_tool_bar"/>
+
+
+        <ListView
+            android:id="@+id/list_event"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:divider="@null">
 
-            <!-- Tool Bar -->
-            <include layout="@layout/my_tool_bar"/>
+        </ListView>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/white"
-                android:gravity="center"
-                android:text="Our Memories"
-                android:textAllCaps="false"
-                android:textColor="@color/primary_blue"
-                android:textSize="@dimen/_13sdp"
-                android:textStyle="bold" />
-
-            <ListView
-                android:id="@+id/list_event"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:divider="@null">
-
-            </ListView>
-
-        </LinearLayout>
-
-    </ScrollView>
+    </LinearLayout>
 
 
     <com.google.android.material.navigation.NavigationView

@@ -59,6 +59,7 @@ public class EventActivity extends AppCompatActivity {
 
 
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,9 @@ public class EventActivity extends AppCompatActivity {
         // tool bar
         drawerLayout = findViewById(R.id.drawerlayout);
         toolbar = findViewById(R.id.my_tool_bar);
+
+        TextView txt_title = findViewById(R.id.txt_title);
+        txt_title.setText("Our Memories");
 
 
         // navigation bar
@@ -101,7 +105,7 @@ public class EventActivity extends AppCompatActivity {
 
                         JSONObject jsonObject = array.getJSONObject(i);
                         String event_title = jsonObject.getString("event_title");
-                        String event_disc = jsonObject.getString("event_disc");
+                        String event_disc = jsonObject.getString("event_dscr");
                         String event_img_url = jsonObject.getString("event_img");
                         eventList.add(new Event_Model(event_title, event_disc, event_img_url));
                     }

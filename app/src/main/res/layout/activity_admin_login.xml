@@ -17,14 +17,14 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <!-- Tool Bar -->
-        <include layout="@layout/my_tool_bar"
-            android:id="@+id/tool"/>
+        <include
+            android:id="@+id/tool"
+            layout="@layout/my_tool_bar" />
 
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/tool"
-            >
+            android:layout_below="@+id/tool">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -41,10 +41,10 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
                         android:gravity="center_horizontal"
                         android:text="ADMIN LOGIN"
                         android:textAllCaps="true"
-                        android:layout_marginTop="10dp"
                         android:textColor="@color/white"
                         android:textSize="@dimen/_20sdp" />
 
@@ -68,19 +68,19 @@
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="@dimen/mdim_40"
                     app:cardBackgroundColor="#ffffff"
                     app:cardCornerRadius="@dimen/_30sdp"
-                    android:layout_marginTop="@dimen/mdim_40"
                     app:cardElevation="@dimen/_3sdp"
-                    android:layout_marginHorizontal="10dp"
                     app:cardUseCompatPadding="true">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_marginVertical="10dp"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <TextView
                             android:layout_width="match_parent"

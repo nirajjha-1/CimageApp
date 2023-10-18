@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dim_150"
@@ -46,7 +47,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dim_155"
+            android:layout_height="@dimen/dim_160"
             android:layout_marginTop="@dimen/mdim_90"
             app:cardBackgroundColor="#ffffff"
             app:cardCornerRadius="@dimen/dim_13"
@@ -58,13 +59,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/dim_5"
-                android:paddingVertical="@dimen/dim_5"
+                android:paddingTop="@dimen/dim_5"
                 android:orientation="vertical">
 
                 <!-- Scroll View -->
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    >
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -216,6 +219,7 @@
                             android:layout_height="@dimen/dim_16"
                             android:layout_marginHorizontal="@dimen/dim_8"
                             android:layout_marginTop="@dimen/dim_3"
+                            android:layout_marginBottom="@dimen/dim_8"
                             android:background="@drawable/bg_square_input_box"
                             android:hint="Enter Student Address"
                             android:inputType="text"
@@ -231,15 +235,15 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_add_student"
-            android:layout_width="@dimen/dim_60"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dim_20"
             android:layout_gravity="center"
-            android:paddingVertical="@dimen/dim_5"
+            android:padding="@dimen/dim_5"
             android:layout_marginTop="@dimen/dim_2"
             android:background="@drawable/bg_square_send_enq"
             android:text="Add Student"
             android:textColor="@color/white"
-            android:textSize="@dimen/_16sdp"
+            android:textSize="@dimen/_14sdp"
             android:textStyle="bold" />
 
     </LinearLayout>
